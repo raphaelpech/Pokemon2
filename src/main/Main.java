@@ -54,6 +54,10 @@ public class Main {
 		Dresseur dresseur = new Dresseur("Sacha", 10);
 		dresseur.capturerPokemons();
 		
+		Dresseur dresseur2 = new Dresseur("Regis", 10);
+		dresseur2.capturerPokemons();
+		
+		dresseur.combattre(dresseur2);
 	}
 
 }

@@ -96,6 +96,41 @@ public class Dresseur {
 		return null;
 	}
 	
+	public void prendreArgent(Dresseur adversaire)
+	{
+		adversaire.argent = adversaire.getArgent() - 10;
+	}
+	
+	public void combattre(Dresseur d)
+	{
+		log("Je te défie, " + d.getNom() + "!");
+		while(d.peutCombattre() && this.peutCombattre())
+		{
+			Pokemon dres1 = prochainPokemon();
+			Pokemon dres2 = d.prochainPokemon();
+			dres1.attaquer(dres2);
+			dres2.attaquer(dres1);
+		}
+		if(!d.peutCombattre())
+		{
+			log("J'ai gagné!");
+		}else
+		{
+			d.log("Haha c'est moi qui ai gagné!");
+		}
+			
+		
+	}
+	
+	public void pokeCenter()
+	{
+		for(int i = 0; i < sacADos.size(); i++)
+		{
+			sacADos.get(i).soigner();
+		}
+		log("Tous mes pokémons ont été soignés!");
+	}
+	
 	public void log(String msg)
 	{
 		System.out.println(this.getNom() + " - " + msg);
